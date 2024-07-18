@@ -2,8 +2,9 @@ class TaskManager:
 
     def __init__(self): 
         self.tasks = {
-            1: {"title": "Task 1", "description": "Description of task 1", "category": "Front-end"},
-            2: {"title": "Task 2", "description": "Description of task 2", "category": None}
+            1: {"title": "Task 1", "description": "Description of task 1", "category": "Front-end", "completed": True},
+            2: {"title": "Task 2", "description": "Description of task 2", "category": None, "completed": False},
+            3: {"title": "Task 3", "description": "Description of task 3", "category": "Backend" , "completed": True}
         } # test amacli dummy tasks 
         
 
@@ -11,11 +12,16 @@ class TaskManager:
         task_count = len(self.tasks)
         print (f"Total Task Count:{task_count}")
 
+        completed_count = sum(1 for task in self.tasks.values() if task.get('completed', True))
+        print(f"Completed Count: {completed_count}")
+        print() #for clarity
+
         for task_id, task_info in self.tasks.items():
             print(f"Task ID: {task_id}")
             for key, value in task_info.items():
                     print(f"{key.capitalize()}: {value}")
-
+            
+    
 task_manager = TaskManager()
 
 # fonksiyonlari konsola bu sekilde cagirabilirsiniz.
